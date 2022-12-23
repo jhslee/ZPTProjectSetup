@@ -143,7 +143,8 @@ public class DirectoryManagement : MonoBehaviour
         {
             CreateEmptyScene(rootDirectory + parentDirectory, "Main.unity");
         }
-        
+
+        EditorUtility.DisplayDialog("Setup Complete!", "Open Scenes > Main and attach the relevant scripts to the objects you see there. (Main, Character Controller, GameManager, UIManager, ClientStarter etc..) \n\nFor your Client Starter, please connect the multiplay object as well in its inspector. \n\nLet's create a world!!", "Lets go!");
     }
 
     [MenuItem("NZTech/Initialize Multiplayer Scripts")]
@@ -155,7 +156,7 @@ public class DirectoryManagement : MonoBehaviour
         if (!Directory.Exists(rootDirectory + "World.multiplay"))
         {
             EditorApplication.ExecuteMenuItem("Assets/Create/ZEPETO/Multiplay Server");
-            EditorUtility.DisplayDialog("Multiplay Object Didn't Exist. Created one for you.", "Please name your multiplayer object \"World\" and run the command again.", "Got it!");
+            EditorUtility.DisplayDialog("Multiplay Object Didn't Exist. Created one for you.", "If you already have a multiplay object, please rename your multiplayer object \"World\" and run the command again.", "Got it!");
             return;
         }
 
@@ -191,6 +192,7 @@ public class DirectoryManagement : MonoBehaviour
         new GameObject("CharacterController").transform.SetParent(mainParent);
         new GameObject("GameManager").transform.SetParent(mainParent);
         new GameObject("UIManager").transform.SetParent(mainParent);
+        new GameObject("ClientStarter").transform.SetParent(mainParent);
 
         GameObject multiplay = new GameObject("Multiplay");
         multiplay.AddComponent<ZEPETO.World.ZepetoWorldMultiplay>();
