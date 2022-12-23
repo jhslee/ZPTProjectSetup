@@ -1,7 +1,7 @@
 {
   "name": "com.nztech.projectsetup",
   "version": "0.0.1",
-  "displayName": "Package Example",
+  "displayName": "NZTECH.ZEPETO.ProjectSetup",
   "description": "This will allow you to quickly organize and set up your unity development environment. \n\nNZTech > Create Directories",
   "unity": "2019.1",
   "unityRelease": "0b5",
